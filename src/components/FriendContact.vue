@@ -1,11 +1,11 @@
 <template>
   <section>
     <li>
-      <h2>{{ friend.name }}</h2>
+      <h2>{{ name }}</h2>
       <button @click="toggleDetails">Show details</button>
       <ul v-if="detailsAreVisible">
-        <li><strong>Phone:</strong> {{ friend.phone }}</li>
-        <li><strong>Email:</strong> {{ friend.email }}</li>
+        <li><strong>Phone:</strong> {{ phoneNumber }}</li>
+        <li><strong>Email:</strong> {{ emailAddress }}</li>
       </ul>
     </li>
   </section>
@@ -13,15 +13,10 @@
 
 <script>
 export default {
+  props: ["name", "phoneNumber", "emailAddress"],
   data() {
     return {
       detailsAreVisible: false,
-      friend: {
-        id: "manuel",
-        name: "Manuel Lorenz",
-        phone: "0123 45678 90",
-        email: "manuel@localhost.com",
-      },
     };
   },
   methods: {
